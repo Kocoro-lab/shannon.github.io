@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shannon 智能体平台</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 80px 0;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            font-weight: 700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 40px;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 2px solid rgba(255,255,255,0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .btn-primary {
+            background: #ff6b6b;
+            border-color: #ff6b6b;
+        }
+
+        .btn-primary:hover {
+            background: #ff5252;
+            border-color: #ff5252;
+        }
+
+        .content {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .section {
+            margin-bottom: 80px;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #2c3e50;
+            position: relative;
+        }
+
+        .section h2::after {
+            content: '';
+            display: block;
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            margin: 20px auto;
+            border-radius: 2px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            padding: 40px 30px;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+
+        .feature-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        .architecture {
+            background: #f8f9fa;
+            padding: 60px 40px;
+            border-radius: 15px;
+            margin: 40px 0;
+        }
+
+        .architecture h3 {
+            text-align: center;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            color: #2c3e50;
+        }
+
+        .tech-stack {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 30px;
+        }
+
+        .tech-item {
+            text-align: center;
+            flex: 1;
+            min-width: 200px;
+        }
+
+        .tech-item h4 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #495057;
+        }
+
+        .tech-item p {
+            color: #6c757d;
+            font-size: 0.9rem;
+        }
+
+        .participation {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+
+        .participation h3 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .participation-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .participation-item {
+            background: rgba(255,255,255,0.1);
+            padding: 30px 20px;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+
+        .participation-item h4 {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+
+        .footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer p {
+            margin-bottom: 10px;
+        }
+
+        .footer a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn {
+                width: 100%;
+                max-width: 300px;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+            
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .tech-stack {
+                flex-direction: column;
+            }
+        }
+
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Shannon 智能体平台</h1>
+            <p class="subtitle">下一代企业级AI智能体治理平台</p>
+            <p class="description">
+                随着AI智能体技术的快速发展，我们发现现有框架在企业级治理和安全方面存在明显不足。
+                Shannon项目应运而生，致力于构建下一代企业级AI智能体治理平台。
+            </p>
+            <div class="cta-buttons">
+                <a href="https://github.com/Kocoro-lab/Shannon" class="btn btn-primary" target="_blank">
+                    🚀 查看项目
+                </a>
+                <a href="#features" class="btn">
+                    📖 了解更多
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="content" id="features">
+        <div class="container">
+            <div class="section">
+                <h2>🎯 核心定位</h2>
+                <p style="text-align: center; font-size: 1.2rem; color: #6c757d; margin-bottom: 50px;">
+                    Shannon是一个全面的AI治理与优化平台，专注解决四大核心问题
+                </p>
+                <div class="features-grid">
+                    <div class="feature-card fade-in">
+                        <span class="feature-icon">🔒</span>
+                        <h3>AI安全防护</h3>
+                        <p>零信任网络架构，自动化安全扫描和漏洞检测，确保AI系统的安全性和可靠性</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <span class="feature-icon">📊</span>
+                        <h3>智能审计系统</h3>
+                        <p>AI应用行为追踪和合规性检查，提供完整的审计轨迹和合规报告</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <span class="feature-icon">🧠</span>
+                        <h3>自适应学习引擎</h3>
+                        <p>持续学习和自我优化机制，让AI系统能够不断改进和适应新的挑战</p>
+                    </div>
+                    <div class="feature-card fade-in">
+                        <span class="feature-icon">⚡</span>
+                        <h3>产品化工具链</h3>
+                        <p>开箱即用的AI应用开发和部署工具，简化开发流程，提高开发效率</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Architecture Section -->
+            <div class="section">
+                <h2>🏗️ 技术架构</h2>
+                <div class="architecture">
+                    <h3>三层架构设计</h3>
+                    <div class="tech-stack">
+                        <div class="tech-item">
+                            <h4>🦀 Rust 隔离层</h4>
+                            <p>提供高性能的安全隔离环境，确保系统稳定性和安全性</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>🐹 Go 中间件</h4>
+                            <p>构建高效的中间件层，处理系统间的通信和协调</p>
+                        </div>
+                        <div class="tech-item">
+                            <h4>🐍 Python 业务逻辑</h4>
+                            <p>实现核心业务逻辑，提供丰富的AI算法和模型支持</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 40px; text-align: center;">
+                        <h4 style="color: #2c3e50; margin-bottom: 20px;">核心特性</h4>
+                        <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+                            <span style="background: #e3f2fd; color: #1976d2; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                                📄 MIT许可证
+                            </span>
+                            <span style="background: #e8f5e8; color: #2e7d32; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                                🐳 Docker化部署
+                            </span>
+                            <span style="background: #fff3e0; color: #f57c00; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                                🏢 企业级安全
+                            </span>
+                            <span style="background: #fce4ec; color: #c2185b; padding: 10px 20px; border-radius: 20px; font-weight: 600;">
+                                🌐 社区驱动
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Participation Section -->
+            <div class="section">
+                <h2>🤝 参与方式</h2>
+                <div class="participation">
+                    <h3>我们诚邀大家积极参与</h3>
+                    <div class="participation-grid">
+                        <div class="participation-item">
+                            <h4>⭐ Star & Fork</h4>
+                            <p>为项目仓库点赞和分叉，支持项目发展</p>
+                        </div>
+                        <div class="participation-item">
+                            <h4>🐛 提交Issue</h4>
+                            <p>报告问题或提出改进建议，帮助项目完善</p>
+                        </div>
+                        <div class="participation-item">
+                            <h4>📝 完善文档</h4>
+                            <p>编写使用指南和技术文档，降低使用门槛</p>
+                        </div>
+                        <div class="participation-item">
+                            <h4>💬 技术讨论</h4>
+                            <p>参与社区讨论，分享经验和最佳实践</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Market Opportunity -->
+            <div class="section">
+                <h2>💡 市场机会</h2>
+                <div style="background: #f8f9fa; padding: 40px; border-radius: 15px; text-align: center;">
+                    <p style="font-size: 1.2rem; color: #495057; margin-bottom: 20px;">
+                        当前智能体框架都相对较新（不到一年），正是建立技术影响力的最佳时机。
+                    </p>
+                    <p style="font-size: 1.1rem; color: #6c757d;">
+                        企业级AI治理需求强烈，Shannon有望填补这一市场空白。
+                    </p>
+                </div>
+            </div>
+
+            <!-- Vision -->
+            <div class="section">
+                <h2>🌟 项目愿景</h2>
+                <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px;">让AI更安全、更可控、更易用</h3>
+                    <p style="font-size: 1.2rem; opacity: 0.9;">
+                        成为连接AI技术与企业应用的桥梁
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>Shannon 智能体平台 - 下一代企业级AI智能体治理平台</p>
+            <p>
+                <a href="https://github.com/Kocoro-lab/Shannon" target="_blank">GitHub 仓库</a> | 
+                <a href="https://github.com/Kocoro-lab" target="_blank">Kocoro Lab</a>
+            </p>
+            <p style="margin-top: 20px; opacity: 0.8;">
+                期待大家的积极参与和贡献！让我们一起打造下一代AI智能体平台标准。
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        // 添加滚动动画效果
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // 观察所有需要动画的元素
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
