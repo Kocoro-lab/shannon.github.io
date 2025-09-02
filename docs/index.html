@@ -17,11 +17,11 @@
             --primary-cyan: #00f5ff;
             --primary-purple: #8b5cf6;
             --primary-pink: #f472b6;
-            --dark-bg: #0a0a0a;
-            --dark-surface: #1a1a1a;
-            --dark-card: #2a2a2a;
+            --dark-bg: #1a1a2e;
+            --dark-surface: #2a2a3e;
+            --dark-card: #3a3a4e;
             --text-primary: #ffffff;
-            --text-secondary: #a0a0a0;
+            --text-secondary: #c0c0c0;
             --accent-glow: 0 0 20px rgba(0, 245, 255, 0.5);
         }
 
@@ -43,10 +43,10 @@
             height: 100%;
             z-index: -1;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(0, 245, 255, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(244, 114, 182, 0.2) 0%, transparent 50%),
-                linear-gradient(135deg, #0a0a0a 0%, #1a0a2e 50%, #16213e 100%);
+                radial-gradient(circle at 20% 80%, rgba(139, 92, 246, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(0, 245, 255, 0.4) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(244, 114, 182, 0.3) 0%, transparent 50%),
+                linear-gradient(135deg, #1a1a2e 0%, #2a1a4e 50%, #2a2a5e 100%);
         }
 
         .bg-animation::before {
@@ -859,40 +859,40 @@
 
             <!-- Architecture Section -->
             <div class="section">
-                <h2>🏗️ 技术架构</h2>
+                <h2 data-translate="tech_architecture">🏗️ 技术架构</h2>
                 <div class="architecture">
-                    <h3 style="font-family: 'Orbitron', monospace; color: var(--primary-cyan); text-align: center; margin-bottom: 50px;">
+                    <h3 style="font-family: 'Orbitron', monospace; color: var(--primary-cyan); text-align: center; margin-bottom: 50px;" data-translate="quantum_architecture">
                         QUANTUM-LEVEL ARCHITECTURE
                     </h3>
                     <div class="tech-stack">
                         <div class="tech-item">
-                            <h4>🦀 RUST ISOLATION LAYER</h4>
-                            <p>内存安全保证，零成本抽象，构建坚不可摧的系统隔离环境</p>
+                            <h4 data-translate="rust_layer">🦀 RUST ISOLATION LAYER</h4>
+                            <p data-translate="rust_desc">内存安全保证，零成本抽象，构建坚不可摧的系统隔离环境</p>
                         </div>
                         <div class="tech-item">
-                            <h4>🐹 GO MIDDLEWARE</h4>
-                            <p>高并发处理，微服务架构，实现毫秒级响应和无限扩展</p>
+                            <h4 data-translate="go_middleware">🐹 GO MIDDLEWARE</h4>
+                            <p data-translate="go_desc">高并发处理，微服务架构，实现毫秒级响应和无限扩展</p>
                         </div>
                         <div class="tech-item">
-                            <h4>🐍 PYTHON AI CORE</h4>
-                            <p>深度学习引擎，神经网络优化，提供最先进的AI算法支持</p>
+                            <h4 data-translate="python_core">🐍 PYTHON AI CORE</h4>
+                            <p data-translate="python_desc">深度学习引擎，神经网络优化，提供最先进的AI算法支持</p>
                         </div>
                     </div>
                     <div style="margin-top: 60px; text-align: center;">
-                        <h4 style="color: var(--primary-cyan); margin-bottom: 30px; font-family: 'Orbitron', monospace;">
+                        <h4 style="color: var(--primary-cyan); margin-bottom: 30px; font-family: 'Orbitron', monospace;" data-translate="core_features">
                             CORE FEATURES
                         </h4>
                         <div style="display: flex; justify-content: space-around; flex-wrap: wrap; gap: 25px;">
-                            <span style="background: rgba(0, 245, 255, 0.1); color: var(--primary-cyan); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-cyan);">
+                            <span style="background: rgba(0, 245, 255, 0.1); color: var(--primary-cyan); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-cyan);" data-translate="mit_license">
                                 📄 MIT LICENSE
                             </span>
-                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--primary-purple); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-purple);">
+                            <span style="background: rgba(139, 92, 246, 0.1); color: var(--primary-purple); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-purple);" data-translate="docker_deploy">
                                 🐳 DOCKER DEPLOY
                             </span>
-                            <span style="background: rgba(244, 114, 182, 0.1); color: var(--primary-pink); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-pink);">
+                            <span style="background: rgba(244, 114, 182, 0.1); color: var(--primary-pink); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-pink);" data-translate="enterprise_security">
                                 🏢 ENTERPRISE SECURITY
                             </span>
-                            <span style="background: rgba(0, 245, 255, 0.1); color: var(--primary-cyan); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-cyan);">
+                            <span style="background: rgba(0, 245, 255, 0.1); color: var(--primary-cyan); padding: 15px 25px; border-radius: 25px; font-weight: 600; border: 1px solid var(--primary-cyan);" data-translate="community_driven">
                                 🌐 COMMUNITY DRIVEN
                             </span>
                         </div>
@@ -902,25 +902,25 @@
 
             <!-- Participation Section -->
             <div class="section">
-                <h2>🤝 参与方式</h2>
+                <h2 data-translate="participation_title">🤝 参与方式</h2>
                 <div class="participation">
-                    <h3>我们诚邀大家积极参与</h3>
+                    <h3 data-translate="participation_subtitle">我们诚邀大家积极参与</h3>
                     <div class="participation-grid">
                         <div class="participation-item">
-                            <h4>⭐ Star & Fork</h4>
-                            <p>为项目仓库点赞和分叉，支持项目发展</p>
+                            <h4 data-translate="star_fork">⭐ Star & Fork</h4>
+                            <p data-translate="star_fork_desc">为项目仓库点赞和分叉，支持项目发展</p>
                         </div>
                         <div class="participation-item">
-                            <h4>🐛 提交Issue</h4>
-                            <p>报告问题或提出改进建议，帮助项目完善</p>
+                            <h4 data-translate="submit_issue">🐛 提交Issue</h4>
+                            <p data-translate="submit_issue_desc">报告问题或提出改进建议，帮助项目完善</p>
                         </div>
                         <div class="participation-item">
-                            <h4>📝 完善文档</h4>
-                            <p>编写使用指南和技术文档，降低使用门槛</p>
+                            <h4 data-translate="improve_docs">📝 完善文档</h4>
+                            <p data-translate="improve_docs_desc">编写使用指南和技术文档，降低使用门槛</p>
                         </div>
                         <div class="participation-item">
-                            <h4>💬 技术讨论</h4>
-                            <p>参与社区讨论，分享经验和最佳实践</p>
+                            <h4 data-translate="tech_discussion">💬 技术讨论</h4>
+                            <p data-translate="tech_discussion_desc">参与社区讨论，分享经验和最佳实践</p>
                         </div>
                     </div>
                 </div>
@@ -928,12 +928,12 @@
 
             <!-- Market Opportunity -->
             <div class="section">
-                <h2>💡 市场机会</h2>
-                <div style="background: #f8f9fa; padding: 40px; border-radius: 15px; text-align: center;">
-                    <p style="font-size: 1.2rem; color: #495057; margin-bottom: 20px;">
+                <h2 data-translate="market_opportunity">💡 市场机会</h2>
+                <div style="background: rgba(42, 42, 42, 0.6); padding: 40px; border-radius: 15px; text-align: center; border: 1px solid rgba(0, 245, 255, 0.2);">
+                    <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 20px;" data-translate="market_desc1">
                         当前智能体框架都相对较新（不到一年），正是建立技术影响力的最佳时机。
                     </p>
-                    <p style="font-size: 1.1rem; color: #6c757d;">
+                    <p style="font-size: 1.1rem; color: var(--text-secondary);" data-translate="market_desc2">
                         企业级AI治理需求强烈，Shannon有望填补这一市场空白。
                     </p>
                 </div>
@@ -941,10 +941,10 @@
 
             <!-- Vision -->
             <div class="section">
-                <h2>🌟 项目愿景</h2>
+                <h2 data-translate="project_vision">🌟 项目愿景</h2>
                 <div style="text-align: center; padding: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border-radius: 15px;">
-                    <h3 style="font-size: 2rem; margin-bottom: 20px;">让AI更安全、更可控、更易用</h3>
-                    <p style="font-size: 1.2rem; opacity: 0.9;">
+                    <h3 style="font-size: 2rem; margin-bottom: 20px;" data-translate="vision_title">让AI更安全、更可控、更易用</h3>
+                    <p style="font-size: 1.2rem; opacity: 0.9;" data-translate="vision_subtitle">
                         成为连接AI技术与企业应用的桥梁
                     </p>
                 </div>
@@ -955,12 +955,12 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <p>Shannon 智能体平台 - 下一代企业级AI智能体治理平台</p>
+            <p data-translate="footer_title">Shannon 智能体平台 - 下一代企业级AI智能体治理平台</p>
             <p>
-                <a href="https://github.com/Kocoro-lab/Shannon" target="_blank">GitHub 仓库</a> | 
-                <a href="https://github.com/Kocoro-lab" target="_blank">Kocoro Lab</a>
+                <a href="https://github.com/Kocoro-lab/Shannon" target="_blank" data-translate="github_repo">GitHub 仓库</a> | 
+                <a href="https://github.com/Kocoro-lab" target="_blank" data-translate="kocoro_lab">Kocoro Lab</a>
             </p>
-            <p style="margin-top: 20px; opacity: 0.8;">
+            <p style="margin-top: 20px; opacity: 0.8;" data-translate="footer_message">
                 期待大家的积极参与和贡献！让我们一起打造下一代AI智能体平台标准。
             </p>
         </div>
@@ -986,7 +986,40 @@
                 learning_title: "自适应学习引擎",
                 learning_desc: "神经网络自进化，持续学习优化，动态适应环境变化，实现AI系统的自我完善",
                 tools_title: "产品化工具链",
-                tools_desc: "一键部署，可视化配置，智能监控，为企业提供完整的AI应用开发生态"
+                tools_desc: "一键部署，可视化配置，智能监控，为企业提供完整的AI应用开发生态",
+                tech_architecture: "🏗️ 技术架构",
+                quantum_architecture: "QUANTUM-LEVEL ARCHITECTURE",
+                rust_layer: "🦀 RUST ISOLATION LAYER",
+                rust_desc: "内存安全保证，零成本抽象，构建坚不可摧的系统隔离环境",
+                go_middleware: "🐹 GO MIDDLEWARE",
+                go_desc: "高并发处理，微服务架构，实现毫秒级响应和无限扩展",
+                python_core: "🐍 PYTHON AI CORE",
+                python_desc: "深度学习引擎，神经网络优化，提供最先进的AI算法支持",
+                core_features: "CORE FEATURES",
+                mit_license: "📄 MIT LICENSE",
+                docker_deploy: "🐳 DOCKER DEPLOY",
+                enterprise_security: "🏢 ENTERPRISE SECURITY",
+                community_driven: "🌐 COMMUNITY DRIVEN",
+                participation_title: "🤝 参与方式",
+                participation_subtitle: "我们诚邀大家积极参与",
+                star_fork: "⭐ Star & Fork",
+                star_fork_desc: "为项目仓库点赞和分叉，支持项目发展",
+                submit_issue: "🐛 提交Issue",
+                submit_issue_desc: "报告问题或提出改进建议，帮助项目完善",
+                improve_docs: "📝 完善文档",
+                improve_docs_desc: "编写使用指南和技术文档，降低使用门槛",
+                tech_discussion: "💬 技术讨论",
+                tech_discussion_desc: "参与社区讨论，分享经验和最佳实践",
+                market_opportunity: "💡 市场机会",
+                market_desc1: "当前智能体框架都相对较新（不到一年），正是建立技术影响力的最佳时机。",
+                market_desc2: "企业级AI治理需求强烈，Shannon有望填补这一市场空白。",
+                project_vision: "🌟 项目愿景",
+                vision_title: "让AI更安全、更可控、更易用",
+                vision_subtitle: "成为连接AI技术与企业应用的桥梁",
+                footer_title: "Shannon 智能体平台 - 下一代企业级AI智能体治理平台",
+                github_repo: "GitHub 仓库",
+                kocoro_lab: "Kocoro Lab",
+                footer_message: "期待大家的积极参与和贡献！让我们一起打造下一代AI智能体平台标准。"
             },
             en: {
                 ai_status: "AI SYSTEM ONLINE",
@@ -1005,7 +1038,40 @@
                 learning_title: "Adaptive Learning Engine",
                 learning_desc: "Neural network self-evolution, continuous learning optimization, dynamic adaptation to environmental changes, achieving AI system self-improvement",
                 tools_title: "Productized Toolchain",
-                tools_desc: "One-click deployment, visual configuration, intelligent monitoring, providing enterprises with a complete AI application development ecosystem"
+                tools_desc: "One-click deployment, visual configuration, intelligent monitoring, providing enterprises with a complete AI application development ecosystem",
+                tech_architecture: "🏗️ Technical Architecture",
+                quantum_architecture: "QUANTUM-LEVEL ARCHITECTURE",
+                rust_layer: "🦀 RUST ISOLATION LAYER",
+                rust_desc: "Memory safety guarantee, zero-cost abstraction, building an impregnable system isolation environment",
+                go_middleware: "🐹 GO MIDDLEWARE",
+                go_desc: "High-concurrency processing, microservice architecture, achieving millisecond-level response and unlimited scaling",
+                python_core: "🐍 PYTHON AI CORE",
+                python_desc: "Deep learning engine, neural network optimization, providing cutting-edge AI algorithm support",
+                core_features: "CORE FEATURES",
+                mit_license: "📄 MIT LICENSE",
+                docker_deploy: "🐳 DOCKER DEPLOY",
+                enterprise_security: "🏢 ENTERPRISE SECURITY",
+                community_driven: "🌐 COMMUNITY DRIVEN",
+                participation_title: "🤝 Ways to Participate",
+                participation_subtitle: "We warmly invite everyone to actively participate",
+                star_fork: "⭐ Star & Fork",
+                star_fork_desc: "Like and fork the project repository to support project development",
+                submit_issue: "🐛 Submit Issue",
+                submit_issue_desc: "Report problems or propose improvements to help perfect the project",
+                improve_docs: "📝 Improve Documentation",
+                improve_docs_desc: "Write usage guides and technical documentation to lower the barrier to entry",
+                tech_discussion: "💬 Technical Discussion",
+                tech_discussion_desc: "Participate in community discussions, share experiences and best practices",
+                market_opportunity: "💡 Market Opportunity",
+                market_desc1: "Current agent frameworks are relatively new (less than a year), making it the perfect time to establish technical influence.",
+                market_desc2: "Enterprise AI governance demand is strong, and Shannon has the potential to fill this market gap.",
+                project_vision: "🌟 Project Vision",
+                vision_title: "Making AI Safer, More Controllable, and Easier to Use",
+                vision_subtitle: "Becoming a bridge connecting AI technology with enterprise applications",
+                footer_title: "Shannon Agent Platform - Next-Generation Enterprise AI Agent Governance Platform",
+                github_repo: "GitHub Repository",
+                kocoro_lab: "Kocoro Lab",
+                footer_message: "We look forward to everyone's active participation and contribution! Let's build the next-generation AI agent platform standard together."
             },
             ja: {
                 ai_status: "AIシステムオンライン",
@@ -1024,7 +1090,40 @@
                 learning_title: "適応学習エンジン",
                 learning_desc: "ニューラルネットワーク自己進化、継続学習最適化、環境変化への動的適応、AIシステムの自己改善を実現",
                 tools_title: "プロダクト化ツールチェーン",
-                tools_desc: "ワンクリックデプロイ、視覚的設定、インテリジェント監視、企業に完全なAIアプリケーション開発エコシステムを提供"
+                tools_desc: "ワンクリックデプロイ、視覚的設定、インテリジェント監視、企業に完全なAIアプリケーション開発エコシステムを提供",
+                tech_architecture: "🏗️ 技術アーキテクチャ",
+                quantum_architecture: "QUANTUM-LEVEL ARCHITECTURE",
+                rust_layer: "🦀 RUST ISOLATION LAYER",
+                rust_desc: "メモリ安全性保証、ゼロコスト抽象化、破られないシステム分離環境を構築",
+                go_middleware: "🐹 GO MIDDLEWARE",
+                go_desc: "高並行処理、マイクロサービスアーキテクチャ、ミリ秒レベルの応答と無制限スケーリングを実現",
+                python_core: "🐍 PYTHON AI CORE",
+                python_desc: "深層学習エンジン、ニューラルネットワーク最適化、最先端AIアルゴリズムサポートを提供",
+                core_features: "CORE FEATURES",
+                mit_license: "📄 MIT LICENSE",
+                docker_deploy: "🐳 DOCKER DEPLOY",
+                enterprise_security: "🏢 ENTERPRISE SECURITY",
+                community_driven: "🌐 COMMUNITY DRIVEN",
+                participation_title: "🤝 参加方法",
+                participation_subtitle: "皆様の積極的な参加をお待ちしています",
+                star_fork: "⭐ Star & Fork",
+                star_fork_desc: "プロジェクトリポジトリにいいねとフォークをして、プロジェクトの発展をサポート",
+                submit_issue: "🐛 Issue提出",
+                submit_issue_desc: "問題の報告や改善提案を行い、プロジェクトの完成を支援",
+                improve_docs: "📝 ドキュメント改善",
+                improve_docs_desc: "使用ガイドや技術ドキュメントを作成し、使用のハードルを下げる",
+                tech_discussion: "💬 技術討論",
+                tech_discussion_desc: "コミュニティ討論に参加し、経験とベストプラクティスを共有",
+                market_opportunity: "💡 市場機会",
+                market_desc1: "現在のエージェントフレームワークは比較的新しく（1年未満）、技術的影響力を確立する絶好の機会です。",
+                market_desc2: "エンタープライズAIガバナンスの需要は強く、Shannonはこの市場ギャップを埋める可能性があります。",
+                project_vision: "🌟 プロジェクトビジョン",
+                vision_title: "AIをより安全で、より制御可能で、より使いやすくする",
+                vision_subtitle: "AI技術とエンタープライズアプリケーションを結ぶ架け橋となる",
+                footer_title: "Shannonエージェントプラットフォーム - 次世代エンタープライズAIエージェントガバナンスプラットフォーム",
+                github_repo: "GitHubリポジトリ",
+                kocoro_lab: "Kocoro Lab",
+                footer_message: "皆様の積極的な参加と貢献をお待ちしています！一緒に次世代AIエージェントプラットフォーム標準を構築しましょう。"
             }
         };
 
