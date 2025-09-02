@@ -593,6 +593,116 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* 语言选择器样式 */
+        .language-switcher {
+            position: fixed;
+            top: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(26, 26, 26, 0.9);
+            border: 1px solid var(--primary-cyan);
+            border-radius: 25px;
+            padding: 10px 15px;
+            color: var(--primary-cyan);
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
+        }
+
+        .language-btn:hover {
+            background: rgba(0, 245, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 245, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        .language-flag {
+            font-size: 1.2rem;
+        }
+
+        .dropdown-arrow {
+            font-size: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+
+        .language-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .language-menu {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: rgba(26, 26, 26, 0.95);
+            border: 1px solid var(--primary-cyan);
+            border-radius: 15px;
+            padding: 10px 0;
+            margin-top: 10px;
+            min-width: 150px;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+            backdrop-filter: blur(20px);
+        }
+
+        .language-dropdown.active .language-menu {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 12px 20px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            color: var(--text-secondary);
+        }
+
+        .language-option:hover {
+            background: rgba(0, 245, 255, 0.1);
+            color: var(--primary-cyan);
+        }
+
+        .language-option .flag {
+            font-size: 1.1rem;
+        }
+
+        .language-option .text {
+            font-family: 'Orbitron', monospace;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .language-switcher {
+                top: 20px;
+                right: 20px;
+            }
+            
+            .language-btn {
+                padding: 8px 12px;
+                font-size: 0.8rem;
+            }
+            
+            .language-menu {
+                min-width: 120px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -600,27 +710,52 @@
     <div class="bg-animation"></div>
     <div class="particles" id="particles"></div>
 
+    <!-- 语言选择器 -->
+    <div class="language-switcher">
+        <div class="language-dropdown">
+            <button class="language-btn" id="languageBtn">
+                <span class="language-flag" id="currentFlag">🇨🇳</span>
+                <span class="language-text" id="currentLang">中文</span>
+                <span class="dropdown-arrow">▼</span>
+            </button>
+            <div class="language-menu" id="languageMenu">
+                <div class="language-option" data-lang="zh">
+                    <span class="flag">🇨🇳</span>
+                    <span class="text">中文</span>
+                </div>
+                <div class="language-option" data-lang="en">
+                    <span class="flag">🇺🇸</span>
+                    <span class="text">English</span>
+                </div>
+                <div class="language-option" data-lang="ja">
+                    <span class="flag">🇯🇵</span>
+                    <span class="text">日本語</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
             <div class="ai-status">
                 <div class="status-dot"></div>
-                <span class="status-text">AI SYSTEM ONLINE</span>
+                <span class="status-text" data-translate="ai_status">AI SYSTEM ONLINE</span>
             </div>
             <h1>SHANNON</h1>
-            <p class="subtitle">NEXT-GEN AI AGENT GOVERNANCE PLATFORM</p>
-            <p class="description">
+            <p class="subtitle" data-translate="subtitle">NEXT-GEN AI AGENT GOVERNANCE PLATFORM</p>
+            <p class="description" data-translate="description">
                 在AI智能体技术飞速发展的今天，现有框架在企业级治理和安全防护方面存在显著缺陷。
                 Shannon应运而生，构建下一代企业级AI智能体治理生态系统，引领AI安全革命。
             </p>
             <div class="cta-buttons">
                 <a href="https://github.com/Kocoro-lab/Shannon" class="btn btn-primary" target="_blank">
                     <span>🚀</span>
-                    <span>启动项目</span>
+                    <span data-translate="launch_project">启动项目</span>
                 </a>
                 <a href="#features" class="btn">
                     <span>⚡</span>
-                    <span>探索技术</span>
+                    <span data-translate="explore_tech">探索技术</span>
                 </a>
             </div>
         </div>
@@ -630,10 +765,10 @@
     <section class="content">
         <div class="container">
             <div class="quote-section">
-                <h2 style="text-align: center; font-family: 'Orbitron', monospace; color: var(--primary-cyan); margin-bottom: 20px;">
+                <h2 style="text-align: center; font-family: 'Orbitron', monospace; color: var(--primary-cyan); margin-bottom: 20px;" data-translate="ai_vision_title">
                     AI领域领袖展望
                 </h2>
-                <p style="text-align: center; color: var(--text-secondary); font-size: 1.2rem;">
+                <p style="text-align: center; color: var(--text-secondary); font-size: 1.2rem;" data-translate="ai_vision_subtitle">
                     聆听AI领域先驱者的智慧，预见智能体治理的未来
                 </p>
                 <div class="quote-grid">
@@ -694,30 +829,30 @@
     <section class="content" id="features">
         <div class="container">
             <div class="section">
-                <h2>🎯 核心定位</h2>
-                <p style="text-align: center; font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 60px;">
+                <h2 data-translate="core_positioning">🎯 核心定位</h2>
+                <p style="text-align: center; font-size: 1.3rem; color: var(--text-secondary); margin-bottom: 60px;" data-translate="core_description">
                     Shannon是一个全面的AI治理与优化平台，专注解决四大核心问题
                 </p>
                 <div class="features-grid">
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🛡️</span>
-                        <h3>AI安全防护</h3>
-                        <p>零信任网络架构，量子级加密保护，实时威胁检测与响应，构建坚不可摧的AI安全防线</p>
+                        <h3 data-translate="security_title">AI安全防护</h3>
+                        <p data-translate="security_desc">零信任网络架构，量子级加密保护，实时威胁检测与响应，构建坚不可摧的AI安全防线</p>
                     </div>
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🔍</span>
-                        <h3>智能审计系统</h3>
-                        <p>全链路行为追踪，智能合规检查，实时风险评估，提供透明可追溯的AI决策审计</p>
+                        <h3 data-translate="audit_title">智能审计系统</h3>
+                        <p data-translate="audit_desc">全链路行为追踪，智能合规检查，实时风险评估，提供透明可追溯的AI决策审计</p>
                     </div>
                     <div class="feature-card fade-in">
                         <span class="feature-icon">🧬</span>
-                        <h3>自适应学习引擎</h3>
-                        <p>神经网络自进化，持续学习优化，动态适应环境变化，实现AI系统的自我完善</p>
+                        <h3 data-translate="learning_title">自适应学习引擎</h3>
+                        <p data-translate="learning_desc">神经网络自进化，持续学习优化，动态适应环境变化，实现AI系统的自我完善</p>
                     </div>
                     <div class="feature-card fade-in">
                         <span class="feature-icon">⚡</span>
-                        <h3>产品化工具链</h3>
-                        <p>一键部署，可视化配置，智能监控，为企业提供完整的AI应用开发生态</p>
+                        <h3 data-translate="tools_title">产品化工具链</h3>
+                        <p data-translate="tools_desc">一键部署，可视化配置，智能监控，为企业提供完整的AI应用开发生态</p>
                     </div>
                 </div>
             </div>
@@ -832,6 +967,141 @@
     </footer>
 
     <script>
+        // 多语言翻译数据
+        const translations = {
+            zh: {
+                ai_status: "AI系统在线",
+                subtitle: "下一代企业级AI智能体治理平台",
+                description: "在AI智能体技术飞速发展的今天，现有框架在企业级治理和安全防护方面存在显著缺陷。Shannon应运而生，构建下一代企业级AI智能体治理生态系统，引领AI安全革命。",
+                launch_project: "启动项目",
+                explore_tech: "探索技术",
+                ai_vision_title: "AI领域领袖展望",
+                ai_vision_subtitle: "聆听AI领域先驱者的智慧，预见智能体治理的未来",
+                core_positioning: "🎯 核心定位",
+                core_description: "Shannon是一个全面的AI治理与优化平台，专注解决四大核心问题",
+                security_title: "AI安全防护",
+                security_desc: "零信任网络架构，量子级加密保护，实时威胁检测与响应，构建坚不可摧的AI安全防线",
+                audit_title: "智能审计系统",
+                audit_desc: "全链路行为追踪，智能合规检查，实时风险评估，提供透明可追溯的AI决策审计",
+                learning_title: "自适应学习引擎",
+                learning_desc: "神经网络自进化，持续学习优化，动态适应环境变化，实现AI系统的自我完善",
+                tools_title: "产品化工具链",
+                tools_desc: "一键部署，可视化配置，智能监控，为企业提供完整的AI应用开发生态"
+            },
+            en: {
+                ai_status: "AI SYSTEM ONLINE",
+                subtitle: "NEXT-GEN AI AGENT GOVERNANCE PLATFORM",
+                description: "In the era of rapid AI agent technology development, existing frameworks have significant deficiencies in enterprise-level governance and security protection. Shannon emerges to build the next-generation enterprise AI agent governance ecosystem, leading the AI security revolution.",
+                launch_project: "Launch Project",
+                explore_tech: "Explore Technology",
+                ai_vision_title: "AI Industry Leaders' Vision",
+                ai_vision_subtitle: "Listen to the wisdom of AI pioneers and foresee the future of agent governance",
+                core_positioning: "🎯 Core Positioning",
+                core_description: "Shannon is a comprehensive AI governance and optimization platform, focusing on solving four core problems",
+                security_title: "AI Security Protection",
+                security_desc: "Zero-trust network architecture, quantum-level encryption protection, real-time threat detection and response, building an impregnable AI security defense line",
+                audit_title: "Intelligent Audit System",
+                audit_desc: "Full-chain behavior tracking, intelligent compliance checking, real-time risk assessment, providing transparent and traceable AI decision auditing",
+                learning_title: "Adaptive Learning Engine",
+                learning_desc: "Neural network self-evolution, continuous learning optimization, dynamic adaptation to environmental changes, achieving AI system self-improvement",
+                tools_title: "Productized Toolchain",
+                tools_desc: "One-click deployment, visual configuration, intelligent monitoring, providing enterprises with a complete AI application development ecosystem"
+            },
+            ja: {
+                ai_status: "AIシステムオンライン",
+                subtitle: "次世代エンタープライズAIエージェントガバナンスプラットフォーム",
+                description: "AIエージェント技術が急速に発展している今日、既存のフレームワークは企業レベルのガバナンスとセキュリティ保護において重大な欠陥があります。Shannonは次世代企業AIエージェントガバナンスエコシステムを構築し、AIセキュリティ革命をリードします。",
+                launch_project: "プロジェクト開始",
+                explore_tech: "技術探索",
+                ai_vision_title: "AI業界リーダーの展望",
+                ai_vision_subtitle: "AIパイオニアの知恵に耳を傾け、エージェントガバナンスの未来を予見する",
+                core_positioning: "🎯 コアポジショニング",
+                core_description: "Shannonは包括的なAIガバナンスと最適化プラットフォームで、4つの核心問題の解決に焦点を当てています",
+                security_title: "AIセキュリティ保護",
+                security_desc: "ゼロトラストネットワークアーキテクチャ、量子レベル暗号化保護、リアルタイム脅威検出と対応、破られないAIセキュリティ防衛線を構築",
+                audit_title: "インテリジェント監査システム",
+                audit_desc: "フルチェーンビヘイビア追跡、インテリジェントコンプライアンスチェック、リアルタイムリスク評価、透明で追跡可能なAI意思決定監査を提供",
+                learning_title: "適応学習エンジン",
+                learning_desc: "ニューラルネットワーク自己進化、継続学習最適化、環境変化への動的適応、AIシステムの自己改善を実現",
+                tools_title: "プロダクト化ツールチェーン",
+                tools_desc: "ワンクリックデプロイ、視覚的設定、インテリジェント監視、企業に完全なAIアプリケーション開発エコシステムを提供"
+            }
+        };
+
+        // 语言配置
+        const languageConfig = {
+            zh: { flag: '🇨🇳', name: '中文' },
+            en: { flag: '🇺🇸', name: 'English' },
+            ja: { flag: '🇯🇵', name: '日本語' }
+        };
+
+        // 当前语言
+        let currentLanguage = 'zh';
+
+        // 检测浏览器语言
+        function detectBrowserLanguage() {
+            const browserLang = navigator.language || navigator.userLanguage;
+            const langCode = browserLang.split('-')[0];
+            
+            // 检查是否支持检测到的语言
+            if (translations[langCode]) {
+                return langCode;
+            }
+            
+            // 默认返回中文
+            return 'zh';
+        }
+
+        // 获取存储的语言偏好
+        function getStoredLanguage() {
+            return localStorage.getItem('shannon_language') || detectBrowserLanguage();
+        }
+
+        // 保存语言偏好
+        function saveLanguage(lang) {
+            localStorage.setItem('shannon_language', lang);
+        }
+
+        // 翻译文本
+        function translateText(key) {
+            return translations[currentLanguage][key] || translations['zh'][key] || key;
+        }
+
+        // 更新页面翻译
+        function updateTranslations() {
+            const elements = document.querySelectorAll('[data-translate]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-translate');
+                const translatedText = translateText(key);
+                element.textContent = translatedText;
+            });
+        }
+
+        // 更新语言选择器显示
+        function updateLanguageSwitcher() {
+            const currentFlag = document.getElementById('currentFlag');
+            const currentLang = document.getElementById('currentLang');
+            
+            if (currentFlag && currentLang) {
+                currentFlag.textContent = languageConfig[currentLanguage].flag;
+                currentLang.textContent = languageConfig[currentLanguage].name;
+            }
+        }
+
+        // 切换语言
+        function switchLanguage(lang) {
+            if (translations[lang]) {
+                currentLanguage = lang;
+                saveLanguage(lang);
+                updateTranslations();
+                updateLanguageSwitcher();
+                
+                // 关闭语言菜单
+                const dropdown = document.querySelector('.language-dropdown');
+                dropdown.classList.remove('active');
+            }
+        }
+
         // 创建粒子效果
         function createParticles() {
             const particlesContainer = document.getElementById('particles');
@@ -921,6 +1191,11 @@
 
         // 页面加载完成后初始化
         document.addEventListener('DOMContentLoaded', () => {
+            // 初始化语言
+            currentLanguage = getStoredLanguage();
+            updateTranslations();
+            updateLanguageSwitcher();
+            
             createParticles();
             
             // 为标题添加打字机效果
@@ -930,6 +1205,36 @@
                 setTimeout(() => {
                     typeWriter(title, originalText, 150);
                 }, 1000);
+            }
+        });
+
+        // 添加语言选择器事件监听
+        document.addEventListener('DOMContentLoaded', () => {
+            // 语言选择器按钮点击事件
+            const languageBtn = document.getElementById('languageBtn');
+            const languageMenu = document.getElementById('languageMenu');
+            const languageOptions = document.querySelectorAll('.language-option');
+            const dropdown = document.querySelector('.language-dropdown');
+
+            if (languageBtn && languageMenu) {
+                languageBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    dropdown.classList.toggle('active');
+                });
+
+                // 语言选项点击事件
+                languageOptions.forEach(option => {
+                    option.addEventListener('click', (e) => {
+                        e.stopPropagation();
+                        const lang = option.getAttribute('data-lang');
+                        switchLanguage(lang);
+                    });
+                });
+
+                // 点击外部关闭菜单
+                document.addEventListener('click', () => {
+                    dropdown.classList.remove('active');
+                });
             }
         });
 
